@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../widgets/listview.dart';
 import '../widgets/tilelist.dart';
+import 'addtaskScreen.dart';
 
 class TaskList extends StatelessWidget {
   const TaskList({super.key});
@@ -11,7 +12,9 @@ class TaskList extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(context: context, builder: (context) => AddTask());
+        },
         child: Icon(
           Icons.add,
           color: Colors.white,
