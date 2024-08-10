@@ -37,6 +37,6 @@ class TaskCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Checkbox(value: isChecked, onChanged: toggleCheckBox );
+    return Checkbox(activeColor: Colors.lightBlueAccent,value: isChecked, onChanged: toggleCheckBox );
   }
 }
