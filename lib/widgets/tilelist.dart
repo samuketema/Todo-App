@@ -9,11 +9,7 @@ class TileList extends StatefulWidget {
 
 class _TileListState extends State<TileList> {
   bool isChecked = false;
-  void onChangedBox(bool? checkBoxState) {
-    setState(() {
-      isChecked = checkBoxState as bool;
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +17,11 @@ class _TileListState extends State<TileList> {
         title: Text('Buy Milk' ,style: TextStyle(decoration: isChecked? TextDecoration.lineThrough:null),),
         trailing: TaskCheckBox(
           isChecked: isChecked,
-          toggleCheckBox:onChangedBox
+          toggleCheckBox:(bool? checkBoxState) {
+    setState(() {
+      isChecked = checkBoxState as bool;
+    });
+  }
         ));
   }
 }
