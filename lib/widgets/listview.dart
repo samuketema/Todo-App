@@ -10,14 +10,18 @@ class TaskLists extends StatefulWidget {
 }
 
 class _TaskListsState extends State<TaskLists> {
-  List<Task> tasks = [Task(name: 'First Task'),
-  Task(name: 'Second Task'),Task(name: "Third Task")];
+  List<Task> tasks = [
+    Task(name: 'First Task'),
+    Task(name: 'Second Task'),
+    Task(name: "Third Task")
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
         return TileList(
-          isChecked: tasks[index].isChecked,
+          isChecked: tasks[index].isChecked, 
           title: tasks[index].name,
           onChanged: (bool? checkBoxState) {
             setState(
