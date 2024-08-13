@@ -3,17 +3,40 @@ import 'package:flutter/widgets.dart';
 import '../widgets/listview.dart';
 import '../widgets/tilelist.dart';
 import 'addtaskScreen.dart';
+import '../modal/task1.dart';
 
-class TaskList extends StatelessWidget {
+
+
+ void addNewTask(){
+  
+ }
+class TaskList extends StatefulWidget {
   const TaskList({super.key});
 
   @override
+  State<TaskList> createState() => _TaskListState();
+}
+
+class _TaskListState extends State<TaskList> {
+  List<Task> tasks = [
+    Task(name: 'First Task'),
+    Task(name: 'Second Task'),
+    Task(name: "Third Task")
+  ];
+  @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) => AddTask());
+          showModalBottomSheet(context: context, builder: (context) => AddTask(onPressed: (newTaskText){
+            setState(() {
+              tasks.add(Task(name: '$newTaskText'));
+            });
+            Navigator.pop(context);
+           
+          },));
         },
         child: Icon(
           Icons.add,
@@ -60,7 +83,7 @@ class TaskList extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),
-            child: TaskLists(),
+            child: TaskLists(tasks: tasks),
           ),
         )
       ]),
