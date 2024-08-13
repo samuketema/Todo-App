@@ -5,11 +5,8 @@ import '../widgets/tilelist.dart';
 import 'addtaskScreen.dart';
 import '../modal/task1.dart';
 
+void addNewTask() {}
 
-
- void addNewTask(){
-  
- }
 class TaskList extends StatefulWidget {
   const TaskList({super.key});
 
@@ -25,18 +22,20 @@ class _TaskListState extends State<TaskList> {
   ];
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) => AddTask(onPressed: (newTaskText){
-            setState(() {
-              tasks.add(Task(name: '$newTaskText'));
-            });
-            Navigator.pop(context);
-           
-          },));
+          showModalBottomSheet(
+              context: context,
+              builder: (context) => AddTask(
+                    onPressed: (newTaskText) {
+                      setState(() {
+                        tasks.add(Task(name: '$newTaskText'));
+                      });
+                      Navigator.pop(context);
+                    },
+                  ));
         },
         child: Icon(
           Icons.add,
