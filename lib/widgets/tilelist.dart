@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,14 +10,14 @@ class TileList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        title: Text( 
+        title: Text(
           title as String,
           style: TextStyle(
               decoration: isChecked! ? TextDecoration.lineThrough : null),
         ),
         trailing: Checkbox(
             activeColor: Colors.lightBlueAccent,
-            value: isChecked,   
+            value: isChecked,
             onChanged: onChanged));
   }
 }
