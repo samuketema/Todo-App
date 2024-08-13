@@ -1,38 +1,35 @@
 import 'package:flutter/material.dart';
 import 'tilelist.dart';
 import '../modal/task1.dart';
+import '../screens/task.dart';
 
 class TaskLists extends StatefulWidget {
-  const TaskLists({super.key});
-
+   TaskLists({required this.tasks,});
+List<Task> tasks;
   @override
   State<TaskLists> createState() => _TaskListsState();
 }
 
 class _TaskListsState extends State<TaskLists> {
-  List<Task> tasks = [
-    Task(name: 'First Task'),
-    Task(name: 'Second Task'),
-    Task(name: "Third Task")
-  ];
+  
   
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
         return TileList(
-          isChecked: tasks[index].isChecked, 
-          title: tasks[index].name,
+          isChecked: widget.tasks[index].isChecked, 
+          title: widget.tasks[index].name,
           onChanged: (bool? checkBoxState) {
             setState(
               () {
-                tasks[index].toggleCheckBox();
+                widget.tasks[index].toggleCheckBox();
               },
             );
           },
         );
       },
-      itemCount: tasks.length,
+      itemCount: widget.tasks.length,
     );
   }
 }
