@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import '../modal/task1.dart';
+import '../widgets/listview.dart';
 
 class AddTask extends StatelessWidget {
-  const AddTask({super.key});
+  Function onPressed;
+   AddTask({required this.onPressed});
+   
+
 
   @override
   Widget build(BuildContext context) {
+     String? newTaskText;
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -27,6 +34,9 @@ class AddTask extends StatelessWidget {
               height: 10,
             ),
             TextField(
+              onChanged: (value){
+                newTaskText = value;
+              },
               autofocus: true,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
@@ -40,7 +50,7 @@ class AddTask extends StatelessWidget {
               height: 20,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed:(){onPressed(newTaskText);},
               child: Text('Add'),
               style: ButtonStyle(
                   backgroundColor:
