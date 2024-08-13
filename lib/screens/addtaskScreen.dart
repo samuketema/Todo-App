@@ -5,13 +5,11 @@ import '../widgets/listview.dart';
 
 class AddTask extends StatelessWidget {
   Function onPressed;
-   AddTask({required this.onPressed});
-   
-
+  AddTask({required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-     String? newTaskText;
+    String? newTaskText;
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -34,7 +32,7 @@ class AddTask extends StatelessWidget {
               height: 10,
             ),
             TextField(
-              onChanged: (value){
+              onChanged: (value) {
                 newTaskText = value;
               },
               autofocus: true,
@@ -50,7 +48,9 @@ class AddTask extends StatelessWidget {
               height: 20,
             ),
             TextButton(
-              onPressed:(){onPressed(newTaskText);},
+              onPressed: () {
+                onPressed(newTaskText);
+              },
               child: Text('Add'),
               style: ButtonStyle(
                   backgroundColor:
