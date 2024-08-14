@@ -73,7 +73,7 @@ class TaskList extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),
-            child: TaskLists(tasks: Provider.of<TaskData>(context).tasks),
+            child: TaskLists(),
           ),
         )
       ]),
