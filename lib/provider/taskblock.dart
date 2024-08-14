@@ -1,3 +1,13 @@
 import 'package:flutter/foundation.dart';
-import '../modal/task1.dart';
+import 'package:todo/modal/task1.dart';
 
+class TaskData extends ChangeNotifier {
+  List<Task> tasks = [
+    Task(name: 'First Task'),
+    Task(name: 'Second Task'),
+    Task(name: "Third Task")
+  ];
+  int numberOFLists(){
+    return tasks.length;
+  }
+}
