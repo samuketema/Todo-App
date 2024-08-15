@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../modal/task1.dart';
-import '../widgets/listview.dart';
 
 class AddTask extends StatelessWidget {
   Function onPressed;
