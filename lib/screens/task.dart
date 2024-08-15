@@ -59,7 +59,7 @@ class TaskList extends StatelessWidget {
                     fontWeight: FontWeight.w700),
               ),
               Text(
-                '${Provider.of<TaskData>(context).numberOFLists()} tasks',
+                '${Provider.of<TaskData>(context).numberOfTasks} tasks',
                 style: TextStyle(color: Colors.white),
               )
             ],
