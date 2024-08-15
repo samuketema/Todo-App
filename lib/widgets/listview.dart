@@ -8,16 +8,18 @@ class TaskLists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-   
     return Consumer<TaskData>(
       builder: (context, taskData, child) {
+        
         return ListView.builder(
         itemBuilder: (context, index) {
+          final currentTask = taskData.tasks[index];
           return TileList(
-            isChecked: taskData.tasks[index].isChecked,
-            title: taskData.tasks[index].name,
+            onLongPress:(){taskData.removeTask(currentTask);} ,
+            isChecked: currentTask.isChecked,
+            title: currentTask.name,
             onChanged: (bool? checkBoxState) {
-              taskData.updateTask(taskData.tasks[index]);
+              taskData.updateTask(currentTask);
             },
           );
         },

@@ -5,11 +5,13 @@ class TileList extends StatelessWidget {
   bool? isChecked;
   String? title;
   Function(bool?) onChanged;
+  Function()? onLongPress;
 
-  TileList({this.isChecked, this.title, required this.onChanged});
+  TileList({this.isChecked, this.title, required this.onChanged , this.onLongPress});
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: onLongPress ,
         title: Text(
           title as String,
           style: TextStyle(
