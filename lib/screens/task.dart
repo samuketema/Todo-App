@@ -4,7 +4,6 @@ import 'package:todo/provider/taskblock.dart';
 import '../widgets/listview.dart';
 import 'package:provider/provider.dart';
 import 'addtaskScreen.dart';
-import '../modal/task1.dart';
 
 void addNewTask() {}
 
@@ -21,9 +20,7 @@ class TaskList extends StatelessWidget {
               context: context,
               builder: (context) => AddTask(
                     onPressed: (newTaskText) {
-                      // setState(() {
-                      //   tasks.add(Task(name: '$newTaskText'));
-                      // });
+                      Provider.of<TaskData>(context, listen: false).addNewTask(newTaskText);
                       Navigator.pop(context);
                     },
                   ));
