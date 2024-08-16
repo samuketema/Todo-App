@@ -10,7 +10,6 @@ class AddTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -33,16 +32,15 @@ class AddTask extends StatelessWidget {
               height: 10,
             ),
             TextField(
-               
-               onChanged: (value) {
+              onChanged: (value) {
                 newTaskText = value;
               },
-               onEditingComplete: (){
-                            newTaskText = _textController.text;
-                            if(_textController.text.isNotEmpty) {
-                              print('YYYYYYYYYYYY');
-                            }
-                            },
+              onEditingComplete: () {
+                newTaskText = _textController.text;
+                if (_textController.text.isNotEmpty) {
+                  print('YYYYYYYYYYYY');
+                }
+              },
               autofocus: true,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
