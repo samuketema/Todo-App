@@ -5,13 +5,16 @@ class AddTask extends StatelessWidget {
   Function onPressed;
   AddTask({required this.onPressed});
 
+  TextEditingController _textController = TextEditingController();
+  String? newTaskText;
+
   @override
   Widget build(BuildContext context) {
-    String? newTaskText;
+    
     return Container(
       color: Color(0xff757575),
       child: Container(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -30,9 +33,16 @@ class AddTask extends StatelessWidget {
               height: 10,
             ),
             TextField(
-              onChanged: (value) {
+               
+               onChanged: (value) {
                 newTaskText = value;
               },
+               onEditingComplete: (){
+                            newTaskText = _textController.text;
+                            if(_textController.text.isNotEmpty) {
+                              print('YYYYYYYYYYYY');
+                            }
+                            },
               autofocus: true,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
@@ -43,7 +53,7 @@ class AddTask extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20))),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             TextButton(
               onPressed: () {
