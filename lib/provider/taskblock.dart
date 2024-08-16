@@ -1,5 +1,4 @@
 import 'dart:collection';
-
 import 'package:flutter/foundation.dart';
 import 'package:todo/modal/task1.dart';
 
@@ -10,24 +9,25 @@ class TaskData extends ChangeNotifier {
     Task(name: "Third Task")
   ];
 
-  int get numberOfTasks{
+  int get numberOfTasks {
     return _tasks.length;
   }
 
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView(_tasks);
   }
-  
-  void addNewTask(newTask){
+
+  void addNewTask(newTask) {
     _tasks.add(Task(name: newTask));
     notifyListeners();
   }
-  void updateTask(Task task){
+
+  void updateTask(Task task) {
     task.toggleCheckBox();
     notifyListeners();
   }
 
-  void removeTask(Task task){
+  void removeTask(Task task) {
     _tasks.remove(task);
     notifyListeners();
   }
