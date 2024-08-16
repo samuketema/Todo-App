@@ -3,10 +3,9 @@ import 'package:todo/provider/taskblock.dart';
 import 'screens/task.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
-  runApp(ChangeNotifierProvider(create: (context)=>TaskData(),
-  child: const MyApp()));
+  runApp(ChangeNotifierProvider(
+      create: (context) => TaskData(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
