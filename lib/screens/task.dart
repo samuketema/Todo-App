@@ -20,7 +20,11 @@ class TaskList extends StatelessWidget {
               context: context,
               builder: (context) => AddTask(
                     onPressed: (newTaskText) {
-                      Provider.of<TaskData>(context, listen: false).addNewTask(newTaskText);
+                      if (newTaskText != null) {
+                        Provider.of<TaskData>(context, listen: false)
+                            .addNewTask(newTaskText);
+                      }
+                      print('new text: $newTaskText');
                       Navigator.pop(context);
                     },
                   ));
